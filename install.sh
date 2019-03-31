@@ -8,27 +8,19 @@ if [[ $EUID -ne 0 ]]; then
 fi
 #-----------------------------------------------------------
 
-#Step 2) enable UART----------------------------------------
-cd /boot/
-File=config.txt
-if grep -q "enable_uart=1" "$File";
-	then
-		echo "UART already enabled. Doing nothing."
-	else
-		echo "enable_uart=1" >> $File
-		echo "UART enabled."
-fi
+#Step 2) Install gpiozero module----------------------------
+git clone https://github.com/TinkerBoard/gpio_lib_python.git
+cd gpio_lib_pyton
+#Build
+sudo apt-get install python-dev python2.7-dev python3-dev
+#Install Python 2.7
+sudo python setup.py install
+#Install Python 3
+sudo python3 setup.py install
+
 #-----------------------------------------------------------
 
-#Step 3) Update repository----------------------------------
-sudo apt-get update -y
-#-----------------------------------------------------------
-
-#Step 4) Install gpiozero module----------------------------
-sudo apt-get install -y python3-gpiozero
-#-----------------------------------------------------------
-
-#Step 5) Download Python script-----------------------------
+#Step 3) Download Python script-----------------------------
 cd /opt/
 sudo mkdir RetroFlag
 cd /opt/RetroFlag
@@ -38,7 +30,8 @@ if [ -e $script ];
 	then
 		echo "Script SafeShutdown.py already exists. Doing nothing."
 	else
-		wget "https://raw.githubusercontent.com/RetroFlag/retroflag-picase/master/SafeShutdown.py"
+		wget "https://github.com/rrifonas/retroflag-picase/raw/master/recalbox_SafeShutdown.py"
+		sudo mv /opt/RetroFlag/recalbox_SafeShutdown.py SafeShutdown.py 
 fi
 #-----------------------------------------------------------
 

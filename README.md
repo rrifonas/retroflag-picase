@@ -1,6 +1,8 @@
 Updated: 2018.5.14
 Metadata in emulationstation will be saved when rebooting and shutting down.
 
+rrifonas [3/30/2019]: Make it compatible with the Tinker Board
+
 # retroflag-picase
 RetroFlag Pi-Case Safe Shutdown
 

@@ -12,7 +12,7 @@ fi
 git clone https://github.com/TinkerBoard/gpio_lib_python.git
 cd gpio_lib_pyton
 #Build
-sudo apt-get install python-dev python2.7-dev python3-dev
+sudo apt-get -y install python-dev python2.7-dev python3-dev
 #Install Python 2.7
 sudo python setup.py install
 #Install Python 3

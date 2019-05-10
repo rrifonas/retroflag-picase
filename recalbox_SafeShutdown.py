@@ -23,7 +23,8 @@ def init():
 def poweroff():
 	while True:
 		GPIO.wait_for_edge(powerPin, GPIO.FALLING)
-		os.system("shutdown -h now")
+#		os.system("shutdown -h now")
+		os.system("sudo killall emulationstation && sleep 5s && sudo shutdown -h now")
 
 #blinks the LED to signal button being pushed
 def ledBlink():
@@ -41,7 +42,8 @@ def ledBlink():
 def reset():
 	while True:
 		GPIO.wait_for_edge(resetPin, GPIO.FALLING)
-		os.system("shutdown -r now")
+#		os.system("shutdown -r now")
+		os.system("sudo killall emulationstation && sleep 5s && sudo reboot")
 
 
 if __name__ == "__main__":

@@ -2,6 +2,7 @@ Updated: 2018.5.14
 Metadata in emulationstation will be saved when rebooting and shutting down.
 
 rrifonas [3/30/2019]: Make it compatible with the Tinker Board
+rrifonas [8/18/2019]: Added multi-sw script for Tinker Board
 
 # retroflag-picase
 RetroFlag Pi-Case Safe Shutdown
@@ -34,4 +35,7 @@ Multi Switch Shutdown by crcerror at here https://github.com/crcerror/retroflag-
 3. Press F4 enter terminal.
 4. In the terminal, type the one-line command below(Case sensitive):
 
+Normal:
 wget -O - "https://raw.githubusercontent.com/rrifonas/retroflag-picase/master/install.sh" | sudo bash
+Multi-Switch:
+wget -O - "https://raw.githubusercontent.com/rrifonas/retroflag-picase/master/install-multi.sh" | sudo bash
